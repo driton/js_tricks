@@ -1,7 +1,7 @@
 # js_tricks
 I want to have something like this in JavaScript or in other programming language:
 
-Ternery operator
+Ternary operator
 -------------------------
 (...) ? true : false
 
