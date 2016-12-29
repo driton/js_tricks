@@ -1,5 +1,5 @@
 # js_tricks
-I wnat to have something like that in JavaScript or in other programming language:
+I want to have something like this in JavaScript or in other programming language:
 
 Ternery operator
 -------------------------
