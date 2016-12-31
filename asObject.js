@@ -71,7 +71,7 @@ switch("hello") {
 	case "hello" : 
 		"Geschiden" ; 
 		break; 
-	case  3 : 
+	case 3 : 
 		"In eine Beziehung"; 
 		break;   
 	default: "Unknown"; 
