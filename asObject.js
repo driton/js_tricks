@@ -57,7 +57,7 @@ function executeThis(param){
 	}
 }
 
-var e = executeThis('("hello") ? {1: "Verheiratet", "hello" : "This is my Name" , 3 : "In eine Beziehung", default: "Unknown"}');
+var e = executeThis('("hello") ? {1: "Verheiratet", "hello" : "Geschiden" , 3 : "In eine Beziehung", default: "Unknown"}');
 console.log(eval(e));
 
 
