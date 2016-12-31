@@ -1,27 +1,78 @@
-var e;
+
 function executeThis(param){
 	//alert(param);
 
 	var splited = param.split("?");
 	var first   = splited[0].trim().replace('(','').replace(')','');
 	var second  = splited[1].trim().replace('}','').replace('{','').split(",");
+	
+	
 
-	str = 'switch('+first+') { ';
+	var preSecond  = splited[1] // OBJ
 
-	for (i = 0; i < second.length; i++){
+	var isAnyArrayInsideSecond = preSecond.indexOf("[");
+	
+	//Check if any array symbol Assigned
+	if ( isAnyArrayInsideSecond === -1 ){
 		
-		if ( i == second.length - 1) {
-			str += ' ' + second[i] +';';
-			break;
-		}else{
-			str += 'case ' + second[i] +'; break; ';
-		}
-	}
 
-	str += ' }';
-	dir(str);
-	return str;
+		try {
+		   eval(`var preSecondType = ${preSecond}`);
+		} catch (e) {
+		    if (e instanceof SyntaxError) {
+		        console.log(e.message);
+		    }
+		}
+
+ 	
+	
+
+	if (typeof preSecondType === 'object') {
+
+		str = 'switch('+first+') { ';
+
+		for (i = 0; i < second.length; i++){
+
+			if ( i == second.length - 1) {
+
+				str += ' ' + second[i] +';';
+
+			}else{
+
+				str += 'case ' + second[i] +'; break; ';
+
+			}
+		}
+
+		str += ' }';
+		console.log(str);
+		return str;
+
+	}else{
+	}
+	
+	
+	}else{
+	}
 }
 
-e = executeThis('(3) ? {1 : "Verheiratet", 2 : "Geschiden" , 3 : "In eine Beziehung", default: "Unknown"}');
-eval(e);
+var e = executeThis('("hello") ? {1: "Verheiratet", "hello" : "This is my Name" , 3 : "In eine Beziehung", default: "Unknown"}');
+console.log(eval(e));
+
+
+/*********** Generated Code *********/
+
+/*
+switch("hello") { 
+	case 1 : 
+		"Verheiratet"; 
+		break; 
+	case "hello" : 
+		"Geschiden" ; 
+		break; 
+	case  3 : 
+		"In eine Beziehung"; 
+		break;   
+	default: "Unknown"; 
+}
+*/
