@@ -18,6 +18,32 @@ function executeThis(param){
 
 		try {
 		   eval(`var preSecondType = ${preSecond}`);
+
+		   if (typeof preSecondType === 'object') {
+
+				str = 'switch('+first+') { ';
+
+				for (i = 0; i < second.length; i++){
+
+					if ( i == second.length - 1) {
+
+						str += ' ' + second[i] +';';
+
+					}else{
+
+						str += 'case ' + second[i] +'; break; ';
+
+					}
+				}
+
+				str += ' }';
+				console.log(str);
+				return str;
+
+			}else{
+				return null;
+				}
+
 		} catch (e) {
 		    if (e instanceof SyntaxError) {
 		        console.log(e.message);
@@ -26,33 +52,8 @@ function executeThis(param){
 
  	
 	
-
-	if (typeof preSecondType === 'object') {
-
-		str = 'switch('+first+') { ';
-
-		for (i = 0; i < second.length; i++){
-
-			if ( i == second.length - 1) {
-
-				str += ' ' + second[i] +';';
-
-			}else{
-
-				str += 'case ' + second[i] +'; break; ';
-
-			}
-		}
-
-		str += ' }';
-		console.log(str);
-		return str;
-
 	}else{
-	}
-	
-	
-	}else{
+		return null;
 	}
 }
 
